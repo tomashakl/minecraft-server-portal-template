@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Config Editor</title>
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    .admin{max-width:900px;margin:28px auto}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
+    .row .field{display:flex;flex-direction:column}
+    label{font-weight:700;margin-bottom:6px}
+    input, textarea, select{background:var(--muted);border:1px solid var(--border);color:var(--txt);padding:12px;border-radius:10px;width:100%;display:block}
+    textarea{min-height:120px}
+    .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .hint{opacity:.8;font-size:13px;margin-top:4px}
+    .sep{height:1px;background:var(--border);margin:24px 0}
+    .small{font-size:12px;opacity:.8}
+    .help-box{border:2px solid #ffffffcc;border-radius:16px;padding:20px 22px;margin:10px 0 24px 0;background:#111418}
+    .help-box h1{margin:0 0 10px 0;color:#fff;font-size:26px}
+    .help-box p, .help-box li{color:#fff;font-size:15px}
+    .help-box code{background:#000;padding:2px 6px;border-radius:6px}
+    textarea{min-height:240px}
+    input{min-height:44px}
+    label{color:#fff}
+    
+  </style>
+</head>
+<body>
+  <main class="admin">
+    <div class="help-box">
+      <h1>Config Editor</h1>
+      <p><strong>How it works:</strong></p>
+      <ol>
+        <li>Fill the fields below. Use JSON in the JSON areas (FAQ/Staff/News).</li>
+        <li>Click <b>Apply (Preview)</b> to test changes instantly — stored in <code>localStorage</code>.</li>
+        <li>Click <b>Export config.json</b> to download the file for deployment next to <code>index.html</code>.</li>
+        <li>Use <b>Import</b> to load an existing <code>config.json</code> into the form.</li>
+      </ol>
+    </div>
+
+    <section class="card">
+      <h2>Branding</h2>
+      <div class="row">
+        <div class="field"><label>Title Short</label><input id="titleShort"/></div>
+        <div class="field"><label>Title Full</label><input id="titleFull"/></div>
+      </div>
+      <div class="field"><label>Slogan</label><input id="slogan"/></div>
+    </section>
+
+    <section class="card">
+      <h2>Theme</h2>
+      <div class="row">
+        <div class="field"><label>Background Image URL</label><input id="bgImage" placeholder="assets/bg.jpg"/></div>
+        <div class="field"><label>Background Video URL (mp4/webm)</label><input id="bgVideoUrl" placeholder=""/></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Video Brightness (0.3–1.2)</label><input id="bgBrightness" type="number" step="0.1" min="0.1" max="2" value="1"/></div>
+        <div class="field"><label>Heading Font</label>
+          <select id="fontHeading">
+            <option value="&quot;Press Start 2P&quot;, monospace">Press Start 2P</option>
+            <option value="&quot;Pixelify Sans&quot;, sans-serif">Pixelify Sans</option>
+            <option value="&quot;VT323&quot;, monospace">VT323</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Server</h2>
+      <div class="row">
+        <div class="field"><label>Address</label><input id="address" placeholder="server.example.com:25565"/></div>
+        <div class="field"><label>Status Endpoint</label><input id="statusEndpoint" placeholder="http://localhost:8089/api/status"/></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Social</h2>
+      <div class="row">
+        <div class="field"><label>Discord</label><input id="discord"/></div>
+        <div class="field"><label>Website</label><input id="website"/></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Gallery</h2>
+      <div class="field">
+        <label>Images (one per line)</label>
+        <textarea id="gallery" rows="8"></textarea>
+        <div class="hint">e.g., assets/s1.jpg ↵ assets/s2.jpg</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Rules</h2>
+      <div class="field">
+        <label>Rules (one per line)</label>
+        <textarea id="rules" rows="6"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>FAQ (JSON)</h2>
+      <div class="field">
+        <label>FAQ Array</label>
+        <textarea id="faq" placeholder='[{"q":"...","a":"..."}]' rows="12"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Staff (JSON)</h2>
+      <div class="field">
+        <label>Staff Array</label>
+        <textarea id="staff" placeholder='[{"nick":"...","role":"...","bio":"..."}]' rows="12"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Map</h2>
+      <div class="field">
+        <label>Dynmap URL (optional)</label>
+        <input id="mapUrl" placeholder="https://map.example.com/"/>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Grid Footer (Bullets)</h2>
+      <div class="field">
+        <label>Bullets (one per line)</label>
+        <textarea id="extraBulletsInput" rows="6">Example
+Example
+Example</textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>News & Events (JSON)</h2>
+      <div class="field">
+        <label>News Array</label>
+        <textarea id="news" placeholder='[{"title":"...","date":"YYYY-MM-DD","body":"...","link":""}]' rows="12"></textarea>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button class="btn" id="apply">Apply (Preview)</button>
+      <button class="btn outline" id="clear">Clear Preview</button>
+      <button class="btn" id="exportBtn">Export config.json</button>
+      <label class="btn outline" for="importFile" style="cursor:pointer">Import config.json</label>
+      <input type="file" id="importFile" accept=".json" style="display:none"/>
+    </div>
+  </main>
+
+<script>
+async function loadConfig(){
+  try{
+    const raw = localStorage.getItem('cfgOverride');
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  const r = await fetch('config.json').catch(()=>null);
+  if(r && r.ok) return r.json();
+  const f = await fetch('config.example.json');
+  return f.json();
+}
+function val(id){ return document.getElementById(id).value; }
+function setVal(id, v){ document.getElementById(id).value = v || ''; }
+function parseLines(s){ return s.split(/\r?\n/).map(x=>x.trim()).filter(Boolean); }
+
+function populate(cfg){
+  setVal('extraBulletsInput', (cfg.sections?.extra?.bullets||[]).join('\n'));
+
+  const theme = cfg.theme || {};
+  setVal('bgImage', theme.background?.image || '');
+  setVal('bgVideoUrl', theme.background?.video || '');
+  setVal('bgBrightness', theme.background?.brightness ?? 1);
+  document.getElementById('fontHeading').value = (theme.fonts?.heading) || '"Press Start 2P", monospace';
+
+  setVal('titleShort', cfg.branding?.titleShort);
+  setVal('titleFull', cfg.branding?.titleFull);
+  setVal('slogan', cfg.branding?.slogan);
+  setVal('address', cfg.server?.address);
+  setVal('statusEndpoint', cfg.server?.statusEndpoint);
+  setVal('discord', cfg.social?.discord);
+  setVal('website', cfg.social?.website);
+  setVal('gallery', (cfg.sections?.gallery?.images||[]).join('\n'));
+  setVal('rules', (cfg.sections?.rules||[]).join('\n'));
+  setVal('faq', JSON.stringify(cfg.sections?.faq||[], null, 2));
+  setVal('staff', JSON.stringify(cfg.sections?.staff||[], null, 2));
+  setVal('mapUrl', cfg.sections?.map?.url||'');
+  setVal('news', JSON.stringify(cfg.sections?.news||[], null, 2));
+}
+
+function buildCfg(){
+  const cfg = {
+    branding: {
+      titleShort: val('titleShort'),
+      titleFull : val('titleFull'),
+      slogan    : val('slogan')
+    },
+    server: {
+      address: val('address'),
+      statusEndpoint: val('statusEndpoint')
+    },
+    social: {
+      discord: val('discord'),
+      website: val('website')
+    },
+    sections: {
+      gallery: { images: parseLines(val('gallery')) },
+      rules: parseLines(val('rules')),
+      faq: [],
+      staff: [],
+      map: { url: val('mapUrl') },
+      news: []
+    }
+  };
+  try{ cfg.sections.faq = JSON.parse(val('faq')||'[]'); }catch{ alert('FAQ JSON is invalid'); }
+  try{ cfg.sections.staff = JSON.parse(val('staff')||'[]'); }catch{ alert('Staff JSON is invalid'); }
+  try{ cfg.sections.news = JSON.parse(val('news')||'[]'); }catch{ alert('News JSON is invalid'); }
+  return cfg;
+}
+
+function downloadJSON(obj, filename){
+  const data = new Blob([JSON.stringify(obj, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(data);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url), 500);
+}
+
+document.getElementById('apply').addEventListener('click', ()=>{
+  const cfg = buildCfg();
+  localStorage.setItem('cfgOverride', JSON.stringify(cfg));
+  alert('Applied for preview. Reload the main page to see changes.');
+});
+document.getElementById('clear').addEventListener('click', ()=>{
+  localStorage.removeItem('cfgOverride');
+  alert('Preview cleared. Reload the main page.');
+});
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  const cfg = buildCfg();
+  downloadJSON(cfg, 'config.json');
+});
+document.getElementById('importFile').addEventListener('change', async (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const txt = await file.text();
+  try{
+    const cfg = JSON.parse(txt);
+    populate(cfg);
+    alert('Config imported into the form. You can Apply or Export now.');
+  }catch{
+    alert('Invalid JSON file.');
+  }
+});
+
+loadConfig().then(populate);
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    image: nginx:alpine
+    container_name: mc_portal_web
+    ports:
+      - "8088:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+  proxy:
+    build: ./proxy
+    container_name: mc_status_proxy
+    environment:
+      - UPSTREAM_STATUS_URL=${UPSTREAM_STATUS_URL}
+    ports:
+      - "8089:8080"

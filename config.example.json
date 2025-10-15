@@ -1,0 +1,86 @@
+{
+  "branding": {
+    "titleShort": "Blocky Realm",
+    "titleFull": "Blocky Realm \u2013 Cozy Survival",
+    "slogan": "Cozy survival \u2022 Low-latency \u2022 Fair play"
+  },
+  "server": {
+    "address": "server.example.com:25565",
+    "statusEndpoint": ""
+  },
+  "social": {
+    "discord": "https://discord.gg/yourInvite",
+    "website": ""
+  },
+  "sections": {
+    "gallery": {
+      "images": [
+        "assets/placeholder-1.jpg",
+        "assets/placeholder-2.jpg"
+      ]
+    },
+    "rules": [
+      "Respect other players \u2013 no griefing or harassment.",
+      "No cheats, exploits, or hacked clients.",
+      "Keep builds safe distance from others unless invited.",
+      "AFK farms allowed if they do not cause lag spikes."
+    ],
+    "faq": [
+      {
+        "q": "How do I join?",
+        "a": "Add the server IP in Multiplayer, click Connect."
+      },
+      {
+        "q": "Any resource pack?",
+        "a": "Optional, recommended for better visuals."
+      }
+    ],
+    "staff": [
+      {
+        "nick": "EnderAdmin",
+        "role": "Owner",
+        "bio": "Keeps the realm tidy."
+      },
+      {
+        "nick": "RedstoneMod",
+        "role": "Moderator",
+        "bio": "Redstone nerd & helper."
+      }
+    ],
+    "news": [
+      {
+        "title": "Season 3 launched",
+        "date": "2025-10-01",
+        "body": "New nether hub, economy tweaks, fresh world border.",
+        "link": ""
+      },
+      {
+        "title": "Weekend event",
+        "date": "2025-10-19",
+        "body": "Build contest at spawn. Prize: Elytra + mending book.",
+        "link": ""
+      }
+    ],
+    "map": {
+      "url": ""
+    },
+    "extra": {
+      "bullets": [
+        "Example",
+        "Example",
+        "Example"
+      ]
+    }
+  },
+  "theme": {
+    "background": {
+      "image": "assets/bg-pixabay-1106261.png",
+      "video": "",
+      "brightness": 1.0
+    },
+    "fonts": {
+      "heading": "\"Press Start 2P\", monospace",
+      "base": "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+    }
+  }
+}
