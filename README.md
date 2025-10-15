@@ -3,6 +3,8 @@
 A universal, customizable web portal template for Minecraft (or other games) servers.  
 Built with pure **HTML, CSS, and JavaScript** — no backend required.
 
+![Preview](assets/bg-pixabay-1106261.png)
+
 ---
 
 ## ✨ Features
@@ -32,19 +34,18 @@ You can easily re-theme this portal for any other game by adjusting:
 
 ---
 
+## 🌐 Live Demo
+
+**[🌐 View Live Demo on GitHub Pages](https://tomashakl.github.io/minecraft-server-portal-template/)**
+
+*(opens in new tab)*
+
+---
+
 ## 📜 License
 MIT License © 2025 Tomáš  
 
 _This project is not affiliated with Mojang or Microsoft. Minecraft™ is a trademark of Mojang AB._
-
----
-
-## 🌐 Live Demo
-*(To be added after publishing on GitHub Pages)*  
-Example URL:  
-```
-[https://tomashakl.github.io/minecraft-server-portal-template/]
-```
 
 ---
 
