@@ -1,41 +1,54 @@
-# Minecraft Server Portal – V2 (Static + Optional Proxy)
+# Minecraft Server Portal Template
 
-A lightweight, **non-infringing**, stylized website template for a Minecraft server/community.
+A universal, customizable web portal template for Minecraft (or other games) servers.  
+Built with pure **HTML, CSS, and JavaScript** — no backend required.
 
-- Pure **HTML/CSS/JS** (static) — easy to host on GitHub Pages or any static hosting.
-- **Admin Config Form** (`admin.html`) – edit values in a form, preview via `localStorage`, export/import `config.json`.
-- **News & Events** section (JSON-driven).
-- **Live Map** (Dynmap/BlueMap/etc.) with a **Toggle** button.
-- **Status Proxy** (optional, Node.js) for CORS-safe server status at `/api/status`.
+![Preview](assets/bg-pixabay-1106261.png)
 
-## Quick Start
-1. Open `admin.html`, fill in values, click **Apply (Preview)**, then **Export config.json** and upload it next to `index.html`.
-2. Put your screenshots into `/assets` and reference them in the form (Gallery).
-3. (Optional) Run the proxy:
-   ```bash
-   cd proxy
-   npm install
-   UPSTREAM_STATUS_URL="https://your-upstream/status" node server.js
-   # It will expose http://localhost:8080/api/status
-   ```
+---
 
-### Docker Compose (optional)
-```bash
-# From project root
-UPSTREAM_STATUS_URL="https://your-upstream/status" docker compose up --build
-# Static site -> http://localhost:8088
-# Proxy      -> http://localhost:8089/api/status
+## ✨ Features
+- Fully configurable via `admin.html` (auto-generates `config.json`)
+- Dynamic content: server info, rules, FAQ, staff list, and news
+- 2×2 grid layout with responsive design
+- Customizable background (image or video)
+- Adjustable fonts and brightness settings
+- Works seamlessly on **GitHub Pages** or any static hosting
+
+---
+
+## 🚀 How to use
+1. Open `admin.html` locally to set up your server info and design.
+2. Click **Apply (Preview)** to test instantly.
+3. Click **Export config.json** to generate your configuration file.
+4. Place `config.json` next to `index.html`.
+5. Deploy everything to your hosting or **GitHub Pages**.
+
+---
+
+## 🧩 Recommended Use
+You can easily re-theme this portal for any other game by adjusting:
+- Background visuals (use your own screenshots)
+- Color palette and font set (via admin)
+- Section titles and labels (edit `index.html`)
+
+---
+
+## 📜 License
+MIT License © 2025 Tomáš  
+
+_This project is not affiliated with Mojang or Microsoft. Minecraft™ is a trademark of Mojang AB._
+
+---
+
+## 🌐 Live Demo
+*(To be added after publishing on GitHub Pages)*  
+Example URL:  
+```
+https://tomasakl.github.io/minecraft-server-portal-template/
 ```
 
-## Status Endpoint
-The site expects simple JSON at your proxy `/api/status`:
-```json
-{
-  "online": true,
-  "players": { "online": 5, "max": 40 },
-  "motd": "Welcome!"
-}
-```
+---
 
-## License
-MIT — see `LICENSE`.
+**Author:** Tomáš  
+**Version:** 1.0 – 2025  
