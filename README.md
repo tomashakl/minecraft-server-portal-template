@@ -3,8 +3,6 @@
 A universal, customizable web portal template for Minecraft (or other games) servers.  
 Built with pure **HTML, CSS, and JavaScript** — no backend required.
 
-![Preview](assets/bg-pixabay-1106261.png)
-
 ---
 
 ## ✨ Features
