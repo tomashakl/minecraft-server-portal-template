@@ -1,26 +1,34 @@
 {
   "branding": {
     "titleShort": "Blocky Realm",
-    "titleFull": "Blocky Realm \u2013 Cozy Survival",
+    "titleFull": "Blocky Realm \u2014 Cozy Survival",
     "slogan": "Cozy survival \u2022 Low-latency \u2022 Fair play"
+  },
+  "theme": {
+    "background": {
+      "image": "assets/bg-pixabay-1106261.png",
+      "video": "",
+      "brightness": 1.0
+    },
+    "fonts": {
+      "heading": "\"Press Start 2P\", monospace",
+      "base": "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+    }
   },
   "server": {
     "address": "server.example.com:25565",
-    "statusEndpoint": ""
+    "statusUrl": "http://localhost:8089/api/status"
   },
-  "social": {
-    "discord": "https://discord.gg/yourInvite",
-    "website": ""
+  "links": {
+    "discord": "#",
+    "website": "#"
   },
+  "gallery": [
+    "assets/placeholder-1.jpg"
+  ],
   "sections": {
-    "gallery": {
-      "images": [
-        "assets/placeholder-1.jpg",
-        "assets/placeholder-2.jpg"
-      ]
-    },
     "rules": [
-      "Respect other players \u2013 no griefing or harassment.",
+      "Respect other players \u2014 no griefing or harassment.",
       "No cheats, exploits, or hacked clients.",
       "Keep builds safe distance from others unless invited.",
       "AFK farms allowed if they do not cause lag spikes."
@@ -35,52 +43,30 @@
         "a": "Optional, recommended for better visuals."
       }
     ],
-    "staff": [
-      {
-        "nick": "EnderAdmin",
-        "role": "Owner",
-        "bio": "Keeps the realm tidy."
-      },
-      {
-        "nick": "RedstoneMod",
-        "role": "Moderator",
-        "bio": "Redstone nerd & helper."
-      }
-    ],
     "news": [
       {
         "title": "Season 3 launched",
         "date": "2025-10-01",
-        "body": "New nether hub, economy tweaks, fresh world border.",
-        "link": ""
+        "body": "New nether hub, economy tweaks, fresh world border."
       },
       {
         "title": "Weekend event",
         "date": "2025-10-19",
-        "body": "Build contest at spawn. Prize: Elytra + mending book.",
-        "link": ""
+        "body": "Build contest at spawn. Prize: Elytra + mending book."
       }
     ],
-    "map": {
-      "url": ""
-    },
-    "extra": {
-      "bullets": [
-        "Example",
-        "Example",
-        "Example"
-      ]
-    }
+    "staff": [
+      {
+        "name": "EnderAdmin",
+        "role": "Owner",
+        "bio": "Keeps the realm tidy."
+      },
+      {
+        "name": "RedstoneMod",
+        "role": "Moderator",
+        "bio": "Redstone nerd & helper."
+      }
+    ]
   },
-  "theme": {
-    "background": {
-      "image": "assets/bg-pixabay-1106261.png",
-      "video": "",
-      "brightness": 1.0
-    },
-    "fonts": {
-      "heading": "\"Press Start 2P\", monospace",
-      "base": "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-    }
-  }
+  "map": {}
 }

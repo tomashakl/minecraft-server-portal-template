@@ -3,49 +3,20 @@
 A universal, customizable web portal template for Minecraft (or other games) servers.  
 Built with pure **HTML, CSS, and JavaScript** — no backend required.
 
----
-
 ## ✨ Features
-- Fully configurable via `admin.html` (auto-generates `config.json`)
-- Dynamic content: server info, rules, FAQ, staff list, and news
-- 2×2 grid layout with responsive design
-- Customizable background (image or video)
-- Adjustable fonts and brightness settings
-- Works seamlessly on **GitHub Pages** or any static hosting
+- Visual config editor (`admin.html`) → exports `config.json`
+- 2×2 grid layout (Rules, FAQ, News & Events, Staff)
+- Customizable background (image/video), fonts, brightness
+- Minecraft‑green checker background on Staff cards
+- Works on GitHub Pages (static hosting)
 
----
-
-## 🚀 How to use
-1. Open `admin.html` locally to set up your server info and design.
-2. Click **Apply (Preview)** to test instantly.
-3. Click **Export config.json** to generate your configuration file.
-4. Place `config.json` next to `index.html`.
-5. Deploy everything to your hosting or **GitHub Pages**.
-
----
-
-## 🧩 Recommended Use
-You can easily re-theme this portal for any other game by adjusting:
-- Background visuals (use your own screenshots)
-- Color palette and font set (via admin)
-- Section titles and labels (edit `index.html`)
-
----
-
-## 🌐 Live Demo
-
-**[🌐 View Live Demo on GitHub Pages](https://tomashakl.github.io/minecraft-server-portal-template/)**
-
-*(opens in new tab)*
-
----
+## 🚀 Quick start
+1. Open `admin.html`, configure content and theme.
+2. Click **Apply (Preview)** to test.
+3. Click **Export config.json** and place it next to `index.html`.
+4. Deploy to your static host (e.g. GitHub Pages).
 
 ## 📜 License
-MIT License © 2025 Tomáš  
+MIT License © 2025 Tomas
 
 _This project is not affiliated with Mojang or Microsoft. Minecraft™ is a trademark of Mojang AB._
-
----
-
-**Author:** Tomáš  
-**Version:** 1.0 – 2025  

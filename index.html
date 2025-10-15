@@ -1,102 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="siteTitle">Minecraft Server Portal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blocky Realm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <!-- Optional background video; configured via config.json -> theme.background.video -->
   <video id="bgVideo" class="bg-video hidden" autoplay muted loop playsinline></video>
-  <header class="nav">
-    <div class="brand">
-      <div class="cube"></div>
-      <span id="brandTitle">Blocky Realm</span>
-    </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#rules">Rules</a>
-      <a href="#faq">FAQ</a>
-      <a href="#news">News</a>
-      <a href="#staff">Staff</a>
-      <a href="#map" id="mapLink" class="hidden">Map</a>
+  <header class="header">
+    <div class="brand"><div class="dot"></div><span>Blocky Realm</span></div>
+    <nav class="nav">
+      <a href="#home">Home</a><a href="#rules">Rules</a><a href="#faq">FAQ</a><a href="#news">News</a><a href="#staff">Staff</a>
     </nav>
   </header>
-
-  <main id="home" class="container">
+  <main id="home">
     <section class="hero">
-      <div class="hero-text">
-        <h1 id="heroTitle">Welcome to Blocky Realm</h1>
-        <p id="heroSubtitle">Cozy survival • Low-latency • Fair play</p>
-        <div class="cta">
+      <div>
+        <h1 id="titleFull">Welcome to Blocky Realm</h1>
+        <div class="sub" id="slogan">Cozy survival • Low-latency • Fair play</div>
+        <div style="margin:14px 0 10px 0">
           <button id="copyIpBtn" class="btn">Copy IP</button>
-          <a id="discordBtn" class="btn outline" target="_blank" rel="noopener">Join Discord</a>
+          <a id="discordBtn" class="btn secondary" href="#" target="_blank" rel="noopener">Join Discord</a>
         </div>
-        <div class="status" id="statusBox">
-          <div class="status-dot offline" id="statusDot"></div>
-          <div class="status-info">
-            <strong id="serverAddress">server.example.com:25565</strong>
-            <span id="statusText">Checking status…</span>
-          </div>
-        </div>
+        <div class="status"><span id="statusText">server.example.com:25565 Status unavailable</span></div>
       </div>
-      <div class="hero-media">
-        <div class="gallery">
-          <img id="galleryImg" src="assets/placeholder-1.jpg" alt="Server screenshot" />
-          <div class="gallery-dots" id="galleryDots"></div>
-        </div>
+      <div class="gallery">
+        <img id="shot1" alt="Screenshot Placeholder #1"/>
+        <div class="legend" id="shotLegend">Screenshot Placeholder #1</div>
       </div>
     </section>
-
     <div id="grid2x2" class="grid-2x2">
-    <section id="rules" class="card">
-      <h2>Rules</h2>
-      <ol id="rulesList"></ol>
-    </section>
-
-    <section id="faq" class="card">
-      <h2>FAQ</h2>
-      <div id="faqList" class="faq"></div>
-    </section>
-
-    <section id="news" class="card">
-      <h2>News & Events</h2>
-      <div id="newsList" class="news"></div>
-    </section>
-
-    <section id="staff" class="card">
-      <h2>Staff</h2>
-      <div id="staffGrid" class="grid"></div>
-    </section>
-  </div>
-
-    <section id="extra" class="card">
-      <ul id="extraBullets" class="bullets"></ul>
-    </section>
-
-    <section id="map" class="card hidden">
-      <h2>Live Map</h2>
-      <button id="mapToggleBtn" class="btn outline" style="margin-bottom:10px">Toggle Map</button>
-      <div class="mapFrame">
-        <iframe id="mapIframe" loading="lazy" referrerpolicy="no-referrer"></iframe>
-      </div>
-    </section>
+      <section id="rules" class="card"><h2>Rules</h2><ol id="rulesList"></ol></section>
+      <section id="faq" class="card faq"><h2>FAQ</h2><div id="faqList"></div></section>
+      <section id="news" class="card"><h2>News & Events</h2><div id="newsList"></div></section>
+      <section id="staff" class="card"><h2>Staff</h2><div id="staffList" class="staff"></div></section>
+    </div>
   </main>
-
   <footer class="footer">
-    <div class="foot-left">
-      <span id="footerBrand">Blocky Realm</span> © <span id="footerYear"></span>
-    </div>
-    <div class="foot-right">
-      <a id="socialDiscord" target="_blank" rel="noopener">Discord</a>
-      <a id="socialWebsite" target="_blank" rel="noopener" class="hidden">Website</a>
-    </div>
+    <div id="footerBrand">Blocky Realm ©</div>
+    <div><a id="websiteLink" href="#" target="_blank" rel="noopener">Website</a> • <a id="discordLink" href="#" target="_blank" rel="noopener">Discord</a></div>
   </footer>
-
   <script src="app.js"></script>
 </body>
 </html>

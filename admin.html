@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin – Config Editor</title>
-  <link href="styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    .admin{max-width:900px;margin:28px auto}
+    :root{--bg:#0e0f10;--card:#14171a;--muted:#1d2226;--border:#2a2f34;--txt:#e9edf1}
+    body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0}
+    .admin{max-width:900px;margin:28px auto;padding:0 16px}
+    .card{background:#14171a;border:1px solid #2a2f34;border-radius:16px;padding:20px;margin:20px 0}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px}
-    .row .field{display:flex;flex-direction:column}
-    label{font-weight:700;margin-bottom:6px}
-    input, textarea, select{background:var(--muted);border:1px solid var(--border);color:var(--txt);padding:12px;border-radius:10px;width:100%;display:block}
-    textarea{min-height:120px}
-    .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
-    .hint{opacity:.8;font-size:13px;margin-top:4px}
-    .sep{height:1px;background:var(--border);margin:24px 0}
-    .small{font-size:12px;opacity:.8}
+    label{display:block;margin:0 0 6px 2px;color:#fff;font-weight:700}
+    input, textarea, select{background:#1d2226;border:1px solid #2a2f34;color:#e9edf1;padding:12px;border-radius:10px;width:100%;display:block}
+    textarea{min-height:240px}
+    .actions{display:flex;gap:10px;margin-top:10px}
+    .btn{background:#58d66b;border:none;color:#06250d;font-weight:800;border-radius:10px;padding:10px 14px;cursor:pointer}
+    .btn.secondary{background:transparent;color:#e9edf1;border:1px solid #2a2f34}
     .help-box{border:2px solid #ffffffcc;border-radius:16px;padding:20px 22px;margin:10px 0 24px 0;background:#111418}
     .help-box h1{margin:0 0 10px 0;color:#fff;font-size:26px}
     .help-box p, .help-box li{color:#fff;font-size:15px}
-    .help-box code{background:#000;padding:2px 6px;border-radius:6px}
-    textarea{min-height:240px}
-    input{min-height:44px}
-    label{color:#fff}
-    
+    .small{font-size:12px;opacity:.8}
   </style>
 </head>
 <body>
   <main class="admin">
     <div class="help-box">
       <h1>Config Editor</h1>
-      <p><strong>How it works:</strong></p>
       <ol>
         <li>Fill the fields below. Use JSON in the JSON areas (FAQ/Staff/News).</li>
         <li>Click <b>Apply (Preview)</b> to test changes instantly — stored in <code>localStorage</code>.</li>
@@ -42,21 +38,21 @@
     <section class="card">
       <h2>Branding</h2>
       <div class="row">
-        <div class="field"><label>Title Short</label><input id="titleShort"/></div>
-        <div class="field"><label>Title Full</label><input id="titleFull"/></div>
+        <div><label>Title Short</label><input id="titleShort"/></div>
+        <div><label>Title Full</label><input id="titleFull"/></div>
       </div>
-      <div class="field"><label>Slogan</label><input id="slogan"/></div>
+      <div class="row"><div><label>Slogan</label><input id="slogan"/></div></div>
     </section>
 
     <section class="card">
       <h2>Theme</h2>
       <div class="row">
-        <div class="field"><label>Background Image URL</label><input id="bgImage" placeholder="assets/bg.jpg"/></div>
-        <div class="field"><label>Background Video URL (mp4/webm)</label><input id="bgVideoUrl" placeholder=""/></div>
+        <div><label>Background Image URL</label><input id="bgImage" placeholder="assets/bg.jpg"/></div>
+        <div><label>Background Video URL (mp4/webm)</label><input id="bgVideoUrl"/></div>
       </div>
       <div class="row">
-        <div class="field"><label>Video Brightness (0.3–1.2)</label><input id="bgBrightness" type="number" step="0.1" min="0.1" max="2" value="1"/></div>
-        <div class="field"><label>Heading Font</label>
+        <div><label>Video Brightness (0.3–1.2)</label><input id="bgBrightness" type="number" step="0.1" min="0.1" max="2" value="1"/></div>
+        <div><label>Heading Font</label>
           <select id="fontHeading">
             <option value="&quot;Press Start 2P&quot;, monospace">Press Start 2P</option>
             <option value="&quot;Pixelify Sans&quot;, sans-serif">Pixelify Sans</option>
@@ -69,191 +65,133 @@
     <section class="card">
       <h2>Server</h2>
       <div class="row">
-        <div class="field"><label>Address</label><input id="address" placeholder="server.example.com:25565"/></div>
-        <div class="field"><label>Status Endpoint</label><input id="statusEndpoint" placeholder="http://localhost:8089/api/status"/></div>
+        <div><label>Address</label><input id="serverAddress" placeholder="server.example.com:25565"/></div>
+        <div><label>Status Endpoint</label><input id="statusEndpoint" placeholder="http://localhost:8089/api/status"/></div>
       </div>
     </section>
 
     <section class="card">
-      <h2>Social</h2>
+      <h2>Links</h2>
       <div class="row">
-        <div class="field"><label>Discord</label><input id="discord"/></div>
-        <div class="field"><label>Website</label><input id="website"/></div>
+        <div><label>Discord</label><input id="linkDiscord" placeholder="https://discord.gg/..."/></div>
+        <div><label>Website</label><input id="linkWebsite" placeholder="https://example.com"/></div>
       </div>
     </section>
 
     <section class="card">
       <h2>Gallery</h2>
-      <div class="field">
-        <label>Images (one per line)</label>
-        <textarea id="gallery" rows="8"></textarea>
-        <div class="hint">e.g., assets/s1.jpg ↵ assets/s2.jpg</div>
-      </div>
+      <label>Images (one per line)</label>
+      <textarea id="gallery">assets/placeholder-1.jpg</textarea>
     </section>
 
     <section class="card">
       <h2>Rules</h2>
-      <div class="field">
-        <label>Rules (one per line)</label>
-        <textarea id="rules" rows="6"></textarea>
-      </div>
+      <label>Rules (one per line)</label>
+      <textarea id="rules">Respect other players — no griefing or harassment.
+No cheats, exploits, or hacked clients.
+Keep builds safe distance from others unless invited.
+AFK farms allowed if they do not cause lag spikes.</textarea>
     </section>
 
     <section class="card">
       <h2>FAQ (JSON)</h2>
-      <div class="field">
-        <label>FAQ Array</label>
-        <textarea id="faq" placeholder='[{"q":"...","a":"..."}]' rows="12"></textarea>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Staff (JSON)</h2>
-      <div class="field">
-        <label>Staff Array</label>
-        <textarea id="staff" placeholder='[{"nick":"...","role":"...","bio":"..."}]' rows="12"></textarea>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Map</h2>
-      <div class="field">
-        <label>Dynmap URL (optional)</label>
-        <input id="mapUrl" placeholder="https://map.example.com/"/>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Grid Footer (Bullets)</h2>
-      <div class="field">
-        <label>Bullets (one per line)</label>
-        <textarea id="extraBulletsInput" rows="6">Example
-Example
-Example</textarea>
-      </div>
+      <textarea id="faq">[
+  {"q":"How do I join?","a":"Add the server IP in Multiplayer, click Connect."},
+  {"q":"Any resource pack?","a":"Optional, recommended for better visuals."}
+]</textarea>
     </section>
 
     <section class="card">
       <h2>News & Events (JSON)</h2>
-      <div class="field">
-        <label>News Array</label>
-        <textarea id="news" placeholder='[{"title":"...","date":"YYYY-MM-DD","body":"...","link":""}]' rows="12"></textarea>
-      </div>
+      <textarea id="news">[
+  {"title":"Season 3 launched","date":"2025-10-01","body":"New nether hub, economy tweaks, fresh world border."},
+  {"title":"Weekend event","date":"2025-10-19","body":"Build contest at spawn. Prize: Elytra + mending book."}
+]</textarea>
     </section>
 
-    <div class="actions">
-      <button class="btn" id="apply">Apply (Preview)</button>
-      <button class="btn outline" id="clear">Clear Preview</button>
-      <button class="btn" id="exportBtn">Export config.json</button>
-      <label class="btn outline" for="importFile" style="cursor:pointer">Import config.json</label>
-      <input type="file" id="importFile" accept=".json" style="display:none"/>
+    <section class="card">
+      <h2>Staff (JSON)</h2>
+      <textarea id="staff">[
+  {"name":"EnderAdmin","role":"Owner","bio":"Keeps the realm tidy."},
+  {"name":"RedstoneMod","role":"Moderator","bio":"Redstone nerd & helper."}
+]</textarea>
+    </section>
+
+    <div class="card">
+      <div class="actions">
+        <button class="btn" id="applyBtn">Apply (Preview)</button>
+        <button class="btn secondary" id="clearBtn">Clear Preview</button>
+        <button class="btn secondary" id="importBtn">Import config.json</button>
+        <button class="btn" id="exportBtn">Export config.json</button>
+      </div>
+      <div class="small">Preview is stored in <code>localStorage</code>. Export to create a file for deployment.</div>
     </div>
   </main>
 
-<script>
-async function loadConfig(){
-  try{
-    const raw = localStorage.getItem('cfgOverride');
-    if(raw) return JSON.parse(raw);
-  }catch(e){}
-  const r = await fetch('config.json').catch(()=>null);
-  if(r && r.ok) return r.json();
-  const f = await fetch('config.example.json');
-  return f.json();
-}
-function val(id){ return document.getElementById(id).value; }
-function setVal(id, v){ document.getElementById(id).value = v || ''; }
-function parseLines(s){ return s.split(/\r?\n/).map(x=>x.trim()).filter(Boolean); }
+  <script>
+    const $ = id => document.getElementById(id);
+    const val = id => $(id).value.trim();
+    const setVal = (id, v) => { if($(id)) $(id).value = v || ''; };
+    const parseLines = t => t.split(/[
+]+/).map(s=>s.trim()).filter(Boolean);
 
-function populate(cfg){
-  setVal('extraBulletsInput', (cfg.sections?.extra?.bullets||[]).join('\n'));
-
-  const theme = cfg.theme || {};
-  setVal('bgImage', theme.background?.image || '');
-  setVal('bgVideoUrl', theme.background?.video || '');
-  setVal('bgBrightness', theme.background?.brightness ?? 1);
-  document.getElementById('fontHeading').value = (theme.fonts?.heading) || '"Press Start 2P", monospace';
-
-  setVal('titleShort', cfg.branding?.titleShort);
-  setVal('titleFull', cfg.branding?.titleFull);
-  setVal('slogan', cfg.branding?.slogan);
-  setVal('address', cfg.server?.address);
-  setVal('statusEndpoint', cfg.server?.statusEndpoint);
-  setVal('discord', cfg.social?.discord);
-  setVal('website', cfg.social?.website);
-  setVal('gallery', (cfg.sections?.gallery?.images||[]).join('\n'));
-  setVal('rules', (cfg.sections?.rules||[]).join('\n'));
-  setVal('faq', JSON.stringify(cfg.sections?.faq||[], null, 2));
-  setVal('staff', JSON.stringify(cfg.sections?.staff||[], null, 2));
-  setVal('mapUrl', cfg.sections?.map?.url||'');
-  setVal('news', JSON.stringify(cfg.sections?.news||[], null, 2));
-}
-
-function buildCfg(){
-  const cfg = {
-    branding: {
-      titleShort: val('titleShort'),
-      titleFull : val('titleFull'),
-      slogan    : val('slogan')
-    },
-    server: {
-      address: val('address'),
-      statusEndpoint: val('statusEndpoint')
-    },
-    social: {
-      discord: val('discord'),
-      website: val('website')
-    },
-    sections: {
-      gallery: { images: parseLines(val('gallery')) },
-      rules: parseLines(val('rules')),
-      faq: [],
-      staff: [],
-      map: { url: val('mapUrl') },
-      news: []
+    function populate(cfg){
+      setVal('titleShort', cfg.branding?.titleShort);
+      setVal('titleFull', cfg.branding?.titleFull);
+      setVal('slogan', cfg.branding?.slogan);
+      setVal('bgImage', cfg.theme?.background?.image);
+      setVal('bgVideoUrl', cfg.theme?.background?.video);
+      setVal('bgBrightness', cfg.theme?.background?.brightness ?? 1);
+      $('fontHeading').value = cfg.theme?.fonts?.heading || '"Press Start 2P", monospace';
+      setVal('serverAddress', cfg.server?.address);
+      setVal('statusEndpoint', cfg.server?.statusUrl);
+      setVal('linkDiscord', cfg.links?.discord);
+      setVal('linkWebsite', cfg.links?.website);
+      setVal('gallery', (cfg.gallery||[]).join('\n'));
+      setVal('rules', (cfg.sections?.rules||[]).join('\n'));
+      setVal('faq', JSON.stringify(cfg.sections?.faq||[], null, 2));
+      setVal('news', JSON.stringify(cfg.sections?.news||[], null, 2));
+      setVal('staff', JSON.stringify(cfg.sections?.staff||[], null, 2));
     }
-  };
-  try{ cfg.sections.faq = JSON.parse(val('faq')||'[]'); }catch{ alert('FAQ JSON is invalid'); }
-  try{ cfg.sections.staff = JSON.parse(val('staff')||'[]'); }catch{ alert('Staff JSON is invalid'); }
-  try{ cfg.sections.news = JSON.parse(val('news')||'[]'); }catch{ alert('News JSON is invalid'); }
-  return cfg;
-}
 
-function downloadJSON(obj, filename){
-  const data = new Blob([JSON.stringify(obj, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(data);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename; a.click();
-  setTimeout(()=>URL.revokeObjectURL(url), 500);
-}
+    function buildCfg(){
+      return {
+        branding: { titleShort: val('titleShort'), titleFull: val('titleFull'), slogan: val('slogan') },
+        theme: {
+          background: { image: val('bgImage'), video: val('bgVideoUrl'), brightness: parseFloat(val('bgBrightness')||'1') || 1 },
+          fonts: { heading: $('fontHeading').value, base: 'Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif' }
+        },
+        server: { address: val('serverAddress'), statusUrl: val('statusEndpoint') },
+        links: { discord: val('linkDiscord'), website: val('linkWebsite') },
+        gallery: parseLines(val('gallery')),
+        sections: {
+          rules: parseLines(val('rules')),
+          faq: JSON.parse(val('faq')||'[]'),
+          news: JSON.parse(val('news')||'[]'),
+          staff: JSON.parse(val('staff')||'[]')
+        },
+        map: {}
+      };
+    }
 
-document.getElementById('apply').addEventListener('click', ()=>{
-  const cfg = buildCfg();
-  localStorage.setItem('cfgOverride', JSON.stringify(cfg));
-  alert('Applied for preview. Reload the main page to see changes.');
-});
-document.getElementById('clear').addEventListener('click', ()=>{
-  localStorage.removeItem('cfgOverride');
-  alert('Preview cleared. Reload the main page.');
-});
-document.getElementById('exportBtn').addEventListener('click', ()=>{
-  const cfg = buildCfg();
-  downloadJSON(cfg, 'config.json');
-});
-document.getElementById('importFile').addEventListener('change', async (e)=>{
-  const file = e.target.files[0];
-  if(!file) return;
-  const txt = await file.text();
-  try{
-    const cfg = JSON.parse(txt);
-    populate(cfg);
-    alert('Config imported into the form. You can Apply or Export now.');
-  }catch{
-    alert('Invalid JSON file.');
-  }
-});
+    function savePreview(cfg){ localStorage.setItem('cfgOverride', JSON.stringify(cfg)); alert('Applied for preview. Reload the main page to see changes.'); }
+    function clearPreview(){ localStorage.removeItem('cfgOverride'); alert('Preview cleared. Reload the main page.'); }
+    function exportJSON(cfg){
+      const blob = new Blob([JSON.stringify(cfg, null, 2)], {type:'application/json'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='config.json'; a.click(); URL.revokeObjectURL(a.href);
+    }
+    async function importJSON(){
+      const inp = document.createElement('input'); inp.type='file'; inp.accept='.json,application/json';
+      inp.onchange = async () => { const f = inp.files[0]; if(!f) return; try{ const t = await f.text(); const cfg = JSON.parse(t); populate(cfg); alert('Config imported into the form. You can Apply or Export now.'); }catch{ alert('Invalid JSON file.'); } };
+      inp.click();
+    }
 
-loadConfig().then(populate);
-</script>
+    $('applyBtn').onclick = ()=> savePreview(buildCfg());
+    $('clearBtn').onclick = ()=> clearPreview();
+    $('exportBtn').onclick = ()=> exportJSON(buildCfg());
+    $('importBtn').onclick = ()=> importJSON();
+
+    fetch('config.example.json').then(r=>r.ok?r.json():{}).then(populate).catch(()=>{});
+  </script>
 </body>
 </html>
