@@ -28,7 +28,7 @@ async function main(){
   const d1=document.getElementById('discordBtn'); const d2=document.getElementById('discordLink'); [d1,d2].forEach(a=>{ if(a) a.href=cfg.links?.discord||'#'; });
   const w1=document.getElementById('websiteLink'); if(w1) w1.href=cfg.links?.website||'#';
   setText('statusText', `${cfg.server?.address||'server.example.com:25565'} Checking status...`);
-  const shot1=document.getElementById('shot1'); shot1.src=cfg.gallery?.[0]||'assets/placeholder-1.jpg';
+  const shot1=document.getElementById('shot1'); shot1.src=cfg.gallery?.[0]||'/images/placeholder-1.jpg';
   renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
 }
 main();
