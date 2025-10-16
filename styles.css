@@ -66,3 +66,6 @@ body.with-video{background-image:none !important}
   .hero{grid-template-columns:1fr}
   .staff{grid-template-columns:1fr}
 }
+
+/* Forced static background image */
+body{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
