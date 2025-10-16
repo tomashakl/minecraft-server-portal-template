@@ -32,3 +32,37 @@ async function main(){
   renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
 }
 main();
+
+
+// === Patched: robust theme application (background image/video + fonts) ===
+function applyTheme(theme){
+  const t = theme || {};
+  // Background image
+  if (t.background && t.background.image){
+    try { document.documentElement.style.setProperty('--bg-image', `url('${t.background.image}')`); } catch(e){}
+  }
+  // Brightness
+  if (t.background && typeof t.background.brightness === 'number'){
+    try { document.documentElement.style.setProperty('--bg-brightness', String(t.background.brightness)); } catch(e){}
+  }
+  // Background video (only if non-empty string)
+  const vid = document.getElementById('bgVideo');
+  const videoSrc = (t.background && typeof t.background.video === 'string') ? t.background.video.trim() : '';
+  if (vid){
+    if (videoSrc){
+      vid.src = videoSrc;
+      vid.classList.remove('hidden');
+      document.body.classList.add('with-video');
+    }else{
+      // Ensure we don't disable background image if no video
+      vid.removeAttribute('src');
+      vid.classList.add('hidden');
+      document.body.classList.remove('with-video');
+    }
+  }
+  // Fonts
+  if (t.fonts){
+    if (t.fonts.heading){ try { document.documentElement.style.setProperty('--font-heading', t.fonts.heading); } catch(e){} }
+    if (t.fonts.base){ try { document.documentElement.style.setProperty('--font-base', t.fonts.base); } catch(e){} }
+  }
+}
