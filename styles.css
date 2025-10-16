@@ -69,3 +69,9 @@ body.with-video{background-image:none !important}
 
 /* Forced static background image */
 body{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
+
+
+/* === FINAL OVERRIDES: ensure background image always visible (no video configured) === */
+html{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
+body{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
+body.with-video{background-image:inherit !important}
