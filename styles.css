@@ -66,3 +66,6 @@ body.with-video{background-image:none !important}
   .hero{grid-template-columns:1fr}
   .staff{grid-template-columns:1fr}
 }
+
+/* Added: green border around image window */
+.gallery img{border:3px solid var(--accent);}

@@ -6,7 +6,7 @@
   },
   "theme": {
     "background": {
-      "image": "/images/bg-pixabay-1106261.png",
+      "image": "assets/bg-pixabay-1106261.png",
       "video": "",
       "brightness": 1.0
     },
@@ -23,7 +23,7 @@
     "website": "#"
   },
   "gallery": [
-    "/images/placeholder-1.jpg"
+    "assets/placeholder-1.jpg"
   ],
   "sections": {
     "rules": [
