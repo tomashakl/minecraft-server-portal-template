@@ -51,9 +51,7 @@ async function main(){
   if (!(cfg.galleryShowControls??true)){ if(btnPrev) btnPrev.classList.add('hidden'); if(btnNext) btnNext.classList.add('hidden'); }
   show(0);
   start();
- = Number(cfg.galleryIntervalSec||5);
-  if (gallery.length > 1) setInterval(()=>{ gi=(gi+1)%gallery.length; show(gi); }, Math.max(2, intervalSec) * 1000);
-  renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
+renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
 }
 main();
 

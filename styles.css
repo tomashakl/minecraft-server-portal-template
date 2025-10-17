@@ -115,3 +115,14 @@ html, body{
   background-color: rgba(0,0,0,0.4); /* ~40% black overlay => ~60% brightness */
   background-blend-mode: multiply;
 }
+
+
+/* Keep footer at the bottom and match translucent header look */
+html, body{ min-height:100%; }
+body{ display:flex; flex-direction:column; }
+main{ flex:1; }
+.footer{
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border);
+}
