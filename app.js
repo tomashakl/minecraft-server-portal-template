@@ -28,7 +28,18 @@ async function main(){
   const d1=document.getElementById('discordBtn'); const d2=document.getElementById('discordLink'); [d1,d2].forEach(a=>{ if(a) a.href=cfg.links?.discord||'#'; });
   const w1=document.getElementById('websiteLink'); if(w1) w1.href=cfg.links?.website||'#';
   setText('statusText', `${cfg.server?.address||'server.example.com:25565'} Checking status...`);
-  const shot1=document.getElementById('shot1'); shot1.src=cfg.gallery?.[0]||'assets/placeholder-1.jpg';
+  const shot1=document.getElementById('shot1');
+  const legendEl=document.getElementById('shotLegend');
+  const gallery = Array.isArray(cfg.gallery) && cfg.gallery.length ? cfg.gallery : ['assets/placeholder-1.jpg'];
+  let gi = 0;
+  function show(i){
+    const url = gallery[i % gallery.length];
+    if (shot1) shot1.src = url;
+    if (legendEl) legendEl.textContent = `Screenshot ${i%gallery.length+1}/${gallery.length}`;
+  }
+  show(gi);
+  const intervalSec = Number(cfg.galleryIntervalSec||5);
+  if (gallery.length > 1) setInterval(()=>{ gi=(gi+1)%gallery.length; show(gi); }, Math.max(2, intervalSec) * 1000);
   renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
 }
 main();

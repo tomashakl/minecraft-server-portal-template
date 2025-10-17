@@ -87,3 +87,9 @@ body.with-video{background-image:inherit !important}
   line-height:1.2;
   margin-bottom:6px;
 }
+
+
+/* Ensure header is always above hero/gallery */
+.header{ z-index: 1000; }
+/* Optional: slight top padding to avoid visual clash if any */
+main{ padding-top: 4px; }
