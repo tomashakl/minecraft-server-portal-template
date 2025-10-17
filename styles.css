@@ -108,3 +108,10 @@ main{ padding-top: 4px; }
 .gal-btn.next{ right:10px }
 .gal-btn:hover{ background:rgba(0,0,0,.7) }
 .hidden{ display:none !important }
+
+
+/* Dim global background for better contrast */
+html, body{
+  background-color: rgba(0,0,0,0.4); /* ~40% black overlay => ~60% brightness */
+  background-blend-mode: multiply;
+}

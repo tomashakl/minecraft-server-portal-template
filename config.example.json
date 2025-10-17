@@ -24,7 +24,8 @@
     "website": "#"
   },
   "gallery": [
-    "assets/placeholder-1.jpg"
+    "assets/placeholder-1.jpg",
+    "assets/placeholder-2.jpg"
   ],
   "sections": {
     "rules": [
@@ -68,5 +69,8 @@
       }
     ]
   },
-  "map": {}
+  "map": {},
+  "galleryIntervalSec": 5,
+  "galleryAutoplay": true,
+  "galleryShowControls": true
 }
