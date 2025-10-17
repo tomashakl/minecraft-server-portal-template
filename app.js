@@ -12,6 +12,7 @@ function applyTheme(theme){
   const t = theme || {};
   if (t.background && t.background.image){ document.documentElement.style.setProperty('--bg-image', `url('${t.background.image}')`); }
   if (t.background && typeof t.background.brightness === 'number'){ document.documentElement.style.setProperty('--bg-brightness', String(t.background.brightness)); }
+  if (typeof t.background.dim === 'number') { try { document.documentElement.style.setProperty('--bg-dim', String(t.background.dim)); } catch(e){} }
   const vid = document.getElementById('bgVideo');
   if (t.background && t.background.video){ vid.src = t.background.video; vid.classList.remove('hidden'); document.body.classList.add('with-video'); }
   if (t.fonts){ if (t.fonts.heading){ document.documentElement.style.setProperty('--font-heading', t.fonts.heading); } if (t.fonts.base){ document.documentElement.style.setProperty('--font-base', t.fonts.base); } }
@@ -65,7 +66,8 @@ function applyTheme(theme){
   }
   // Brightness
   if (t.background && typeof t.background.brightness === 'number'){
-    try { document.documentElement.style.setProperty('--bg-brightness', String(t.background.brightness)); } catch(e){}
+    try { document.documentElement.style.setProperty('--bg-brightness', String(t.background.brightness)); }
+  if (typeof t.background.dim === 'number') { try { document.documentElement.style.setProperty('--bg-dim', String(t.background.dim)); } catch(e){} } catch(e){}
   }
   // Background video (only if non-empty string)
   const vid = document.getElementById('bgVideo');

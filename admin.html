@@ -166,7 +166,7 @@ AFK farms allowed if they do not cause lag spikes.</textarea>
       return {
         branding: { titleShort: val('titleShort'), titleFull: val('titleFull'), slogan: val('slogan') },
         theme: {
-          background: { image: val('bgImage'), video: val('bgVideoUrl'), brightness: parseFloat(val('bgBrightness')||'1') || 1 },
+          background: { image: val('bgImage'), video: val('bgVideoUrl'), brightness: parseFloat(val('bgBrightness')||'1') || 1, dim: parseFloat(val('bgDim')||'0.6') || 0 },
           fonts: { heading: $('fontHeading').value, base: 'Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif' }
         },
         server: { address: val('serverAddress'), statusUrl: val('statusEndpoint') },

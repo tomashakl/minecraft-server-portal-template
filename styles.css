@@ -126,3 +126,11 @@ main{ flex:1; }
   backdrop-filter: blur(6px);
   border-top: 1px solid var(--border);
 }
+
+
+/* === Configurable background dim via --bg-dim (0–1) === */
+:root{ --bg-dim: 0.6; } /* default demo value */
+html, body{
+  background-color: rgba(0,0,0,var(--bg-dim));
+  background-blend-mode: multiply;
+}

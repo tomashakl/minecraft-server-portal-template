@@ -8,7 +8,8 @@
     "background": {
       "image": "assets/bg-pixabay-1106261.png",
       "video": "",
-      "brightness": 1.0
+      "brightness": 1.0,
+      "dim": 0.6
     },
     "fonts": {
       "heading": "\"Press Start 2P\", monospace",
