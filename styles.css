@@ -93,3 +93,18 @@ body.with-video{background-image:inherit !important}
 .header{ z-index: 1000; }
 /* Optional: slight top padding to avoid visual clash if any */
 main{ padding-top: 4px; }
+
+
+/* Gallery controls + fade */
+.gallery{ position:relative }
+.gallery img{ transition: opacity 0.6s ease }
+.gal-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,.5); border:1px solid var(--border);
+  border-radius:12px; width:40px; height:40px; line-height:36px;
+  font-size:24px; color:#fff; cursor:pointer;
+}
+.gal-btn.prev{ left:10px }
+.gal-btn.next{ right:10px }
+.gal-btn:hover{ background:rgba(0,0,0,.7) }
+.hidden{ display:none !important }

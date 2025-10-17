@@ -30,15 +30,28 @@ async function main(){
   setText('statusText', `${cfg.server?.address||'server.example.com:25565'} Checking status...`);
   const shot1=document.getElementById('shot1');
   const legendEl=document.getElementById('shotLegend');
+  const btnPrev=document.getElementById('galPrev');
+  const btnNext=document.getElementById('galNext');
   const gallery = Array.isArray(cfg.gallery) && cfg.gallery.length ? cfg.gallery : ['assets/placeholder-1.jpg'];
-  let gi = 0;
+  let gi = 0, timer=null;
   function show(i){
-    const url = gallery[i % gallery.length];
-    if (shot1) shot1.src = url;
-    if (legendEl) legendEl.textContent = `Screenshot ${i%gallery.length+1}/${gallery.length}`;
+    gi = (i + gallery.length) % gallery.length;
+    if (shot1){
+      shot1.style.opacity = 0;
+      const img = new Image();
+      img.onload = ()=>{ shot1.src = img.src; shot1.style.opacity = 1; };
+      img.src = gallery[gi];
+    }
+    if (legendEl) legendEl.textContent = `Screenshot ${gi+1}/${gallery.length}`;
   }
-  show(gi);
-  const intervalSec = Number(cfg.galleryIntervalSec||5);
+  function start(){ const intervalSec = Number(cfg.galleryIntervalSec||5); if(gallery.length>1 && (cfg.galleryAutoplay??true)) timer = setInterval(()=> show(gi+1), Math.max(2, intervalSec)*1000); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  if (btnPrev){ btnPrev.onclick = ()=>{ stop(); show(gi-1); start(); }; }
+  if (btnNext){ btnNext.onclick = ()=>{ stop(); show(gi+1); start(); }; }
+  if (!(cfg.galleryShowControls??true)){ if(btnPrev) btnPrev.classList.add('hidden'); if(btnNext) btnNext.classList.add('hidden'); }
+  show(0);
+  start();
+ = Number(cfg.galleryIntervalSec||5);
   if (gallery.length > 1) setInterval(()=>{ gi=(gi+1)%gallery.length; show(gi); }, Math.max(2, intervalSec) * 1000);
   renderRules(cfg.sections?.rules||[]); renderFAQ(cfg.sections?.faq||[]); renderNews(cfg.sections?.news||[]); renderStaff(cfg.sections?.staff||[]);
 }

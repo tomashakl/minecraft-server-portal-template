@@ -80,6 +80,13 @@
 
     <section class="card">
       <h2>Gallery</h2>
+      <div class="row">
+        <div><label>Autoplay interval (sec)</label><input id="galleryIntervalSec" type="number" min="2" value="5"/></div>
+        <div><label class="small">Options</label>
+          <div><input type="checkbox" id="galleryAutoplay" checked/> <label for="galleryAutoplay">Enable autoplay</label></div>
+          <div style="margin-top:6px"><input type="checkbox" id="galleryShowControls" checked/> <label for="galleryShowControls">Show prev/next buttons</label></div>
+        </div>
+      </div>
       <label>Images (one per line)</label>
       <textarea id="gallery">assets/placeholder-1.jpg</textarea>
     </section>
@@ -147,6 +154,7 @@ AFK farms allowed if they do not cause lag spikes.</textarea>
       setVal('statusEndpoint', cfg.server?.statusUrl);
       setVal('linkDiscord', cfg.links?.discord);
       setVal('linkWebsite', cfg.links?.website);
+      setVal('galleryIntervalSec', String(cfg.galleryIntervalSec||5)); $('galleryAutoplay').checked = (cfg.galleryAutoplay ?? true); $('galleryShowControls').checked = (cfg.galleryShowControls ?? true);
       setVal('gallery', (cfg.gallery||[]).join('\n'));
       setVal('rules', (cfg.sections?.rules||[]).join('\n'));
       setVal('faq', JSON.stringify(cfg.sections?.faq||[], null, 2));
@@ -163,6 +171,9 @@ AFK farms allowed if they do not cause lag spikes.</textarea>
         },
         server: { address: val('serverAddress'), statusUrl: val('statusEndpoint') },
         links: { discord: val('linkDiscord'), website: val('linkWebsite') },
+        galleryIntervalSec: parseFloat(val('galleryIntervalSec'))||5,
+        galleryAutoplay: $('galleryAutoplay').checked,
+        galleryShowControls: $('galleryShowControls').checked,
         gallery: parseLines(val('gallery')),
         sections: {
           rules: parseLines(val('rules')),
