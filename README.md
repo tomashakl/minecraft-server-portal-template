@@ -1,74 +1,54 @@
 # Minecraft Server Portal Template
 
-> ⚠️ **Work-in-Progress:** This template has **not been tested against a live Minecraft server yet** (no MC hosting available on my side). It is a **fully static** website; the status line is optional and can be wired later via `server.statusUrl` if you add your own backend/proxy.
+> ⚠️ **Work-in-Progress:** This template has **not yet been tested with a live Minecraft server** (no active MC hosting available at this time).  
+> It currently runs as a **fully static website**; the server status feature can be connected later via your own API or proxy if needed.
 
 🎮 **Live demo:** <a href="https://tomashakl.github.io/minecraft-server-portal-template/" target="_blank" rel="noopener">Try the demo here</a>
 
 ---
 
 ## What it does
-- **Single‑page landing site** for your Minecraft server (title, slogan, IP, Discord).
-- **“Copy IP”** button + **Join Discord** link.
-- **Hero gallery** with screenshots: **autoplay** (configurable interval), **‹/› controls**, smooth **fade** transition.
-- **Content sections from JSON**: Rules, FAQ, News & Events, Staff — all loaded from `config.json` (no backend needed).
-- **Green name badges** in **Staff** (styled to match the “Copy IP” button).
-- **Adjustable background dim** and **brightness** for better readability.
-- **Sticky header & footer** — both semi‑transparent (same look), footer sticks to the bottom.
-- Minecraft‑style webfont for the heading + readable system font for body text.
-- Ready for **GitHub Pages** (pure static deployment).
+
+**Minecraft Server Portal Template** is a free, ready-to-use website designed for any Minecraft server.  
+You can host it **on any web hosting service** — no special setup or backend is required.
+
+- **Quick and easy setup:** Configure everything (server IP, name, images, texts, and rules) through the built-in **Admin Panel** — no coding needed.  
+- **Modern landing page:** Clean, professional design with a dynamic hero section and rotating screenshots.  
+- **All your server info in one place:** Show your IP, Discord invite, news, rules, FAQ, and staff members in an organized and visually clear layout.  
+- **Fully customizable look:** Change brightness, background dim, or even use a looping video background for a unique atmosphere.  
+- **Mobile-friendly:** Works seamlessly on desktop, tablet, and mobile.  
+- **Lightweight and universal:** 100% static — works with any hosting provider that supports simple HTML files.  
+- **Free and open-source:** Download, modify, and use it freely for personal or community Minecraft projects.
 
 ---
 
 ## How `admin.html` works
-`admin.html` is a simple **Config Editor** used to fill out and export `config.json`. You can open it **locally** in your browser (double‑click).
 
-### Controls
-- **Apply (Preview)** — saves the current form to `localStorage` and enables **instant preview** (open `index.html` afterwards).  
-- **Export config.json** — downloads the generated `config.json` (place it next to `index.html`).  
-- **Import** — loads an existing `config.json` into the form.  
-- **Clear Preview** — clears the preview config from `localStorage`.
+`admin.html` is a built-in **Config Editor** that lets you fill in and export your configuration file (`config.json`) — the core of your website’s content.  
+Simply open it **locally in your browser** (double-click), fill out the form, and export your ready config file.
 
-### Form sections
-**Branding**
-- `Title Short` — short title (used in header & footer).  
-- `Title Full` — big hero title (“Welcome to …” / “Blocky Realm — Cozy Survival”).  
-- `Slogan` — subtitle line (e.g., “Cozy survival • Low‑latency • Fair play”).
+### Main controls
+- **Apply (Preview):** Saves your current settings for instant preview.  
+- **Export config.json:** Downloads the finished configuration file.  
+- **Import / Clear Preview:** Load an existing config or clear the current preview data.
 
-**Theme**
-- `Background image` — path to background image (e.g., `assets/bg.png`).  
-- `Video URL (optional)` — background video (optional).  
-- `Background brightness (0–1)` — image brightness (1 = original, 0.5 = half).  
-- `Background dim (0–1)` — black overlay for readability (0 = none, 1 = fully black).  
-- `Fonts` — heading & base fonts.
+### Editable sections
+- **Branding:** Website titles, main headline, and slogan.  
+- **Theme:** Background image or video, brightness, dim intensity, and fonts.  
+- **Server:** Server IP address, status endpoint (optional).  
+- **Links:** Discord, website, or other links.  
+- **Gallery:** Screenshots and rotation timing.  
+- **Content:** Rules, FAQ, News, and Staff members.
 
-**Server**
-- `Address` — host:port (shown on the page and in the status line).  
-- `Status Endpoint` — REST endpoint for your own backend (optional). Leave blank if you don’t have one.
-
-**Links**
-- `Discord` — invite URL.  
-- `Website` — your website (optional).
-
-**Gallery**
-- `Images (one per line)` — list of screenshots (each on a new line).  
-- `Autoplay interval (sec)` — switch interval (min 2 s).  
-- `Enable autoplay` — toggles automatic rotation.  
-- `Show ‹/› controls` — toggles manual controls.
-
-**Sections (data)**
-- **Rules** — each line = one rule.  
-- **FAQ** — array of objects: `[{ "q": "...", "a": "..." }, …]`.  
-- **News** — array of objects: `[{ "date": "YYYY‑MM‑DD", "title": "...", "body": "..." }, …]`.  
-- **Staff** — array of objects: `[{ "name": "...", "role": "...", "bio": "..." }, …]`.
-
-> Tip: Use **Apply (Preview)** for instant local testing via `localStorage`. When it looks right, click **Export** and upload the generated `config.json` next to `index.html` in your repository.
+> Tip: Use **Apply (Preview)** for instant local testing. Once everything looks right, export the `config.json` file and upload it to your hosting.
 
 ---
 
 ## Notes
-- For **GitHub Pages** you don’t need Docker or a backend — just upload the files (`index.html`, `styles.css`, `app.js`, `assets/`, `config.json`).  
-- `server.statusUrl` is **optional** and only needed if you later add your own status proxy/API.  
-- If you don’t see updates right away, force‑refresh with **Ctrl/Cmd + Shift + R** to bypass cache.
+
+- Works on **any standard web hosting** — upload your files (`index.html`, `styles.css`, `app.js`, `assets/`, and `config.json`).  
+- The server status feature is **optional** and can be added later using your own API.  
+- If you don’t see updates right away, refresh your browser with **Ctrl/Cmd + Shift + R** to clear cache.
 
 ## Credits
 Created and maintained by **tomashakl**.  
