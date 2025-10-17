@@ -75,3 +75,15 @@ body{background-image:url('assets/bg-pixabay-1106261.png') !important;background
 html{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
 body{background-image:url('assets/bg-pixabay-1106261.png') !important;background-size:cover;background-position:center;background-attachment:fixed}
 body.with-video{background-image:inherit !important}
+
+
+/* === Staff name badge matches Copy IP green === */
+.staff-card .nick{
+  display:inline-block;
+  background: var(--accent);
+  color:#06250d;
+  padding:4px 10px;
+  border-radius:10px;
+  line-height:1.2;
+  margin-bottom:6px;
+}
